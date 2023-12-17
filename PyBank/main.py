@@ -74,12 +74,17 @@ with open(csv_path) as csv_file:
     print(f"Greatest Increase in Profits: {increase_date} (${increase})")
     print(f"Greatest Decrease in Profits: {decrease_date} (${decrease})")
 
-    # Specify file to write to
-    output = os.path.join("PyBank", "output.txt")
+   
+# Specify file to write to
+output_path = os.path.join("PyBank", "output.txt")
 
-    # List of text for each line
-    lines = ["Financial Analysis", "---------------------", f"Total Months: {num_months}",
-             f"Total: ${total_pl}", f"Average Change: ${round(average, 2)}",
-             f"Greatest Increase in Profits: {increase_date} (${increase})",
-             f"Greatest Decrease in Profits: {decrease_date} (${decrease})"]
+# List of text for each line
+lines = ["Financial Analysis", "---------------------", f"Total Months: {num_months}",
+         f"Total: ${total_pl}", f"Average Change: ${round(average, 2)}",
+         f"Greatest Increase in Profits: {increase_date} (${increase})",
+         f"Greatest Decrease in Profits: {decrease_date} (${decrease})"]
 
+# Writing to the output.txt file
+with open(output_path, 'w') as output_file:
+    for line in lines:
+        output_file.write(line + '\n')
